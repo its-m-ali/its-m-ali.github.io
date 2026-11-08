@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Muhammad Ali — Data Science Student & Python Developer</title>
+<meta name="description" content="Portfolio of Muhammad Ali, Data Science student at PAF-IAST. Python, AI, machine learning and software projects.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&display=swap" rel="stylesheet">
+<style>
+:root{--b1:#fdf9f5;--b2:#f7e4d8;--blob:#f3b497;--ink:#1f1a19;--mute:#6a5d58;--acc:#e5481f;--card:rgba(255,255,255,.66);--edge:rgba(255,255,255,.9);--line:rgba(60,35,25,.35);--chip:rgba(229,72,31,.1)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--b1:#1a1310;--b2:#2d1c14;--blob:#7a3418;--ink:#f6ede8;--mute:#bba99f;--acc:#ff7a4d;--card:rgba(38,27,22,.68);--edge:rgba(255,255,255,.1);--line:rgba(255,235,225,.35);--chip:rgba(255,122,77,.15)}}
+*{box-sizing:border-box}
+html{scroll-behavior:auto}
+body{margin:0;height:640vh;font-family:'Bricolage Grotesque',system-ui,-apple-system,'Segoe UI',sans-serif;color:var(--ink);background:var(--b1)}
+#stage{position:fixed;inset:0;overflow:hidden;background:radial-gradient(52% 62% at 82% 28%,var(--blob),transparent 72%),linear-gradient(165deg,var(--b1),var(--b2))}
+html.lock,html.lock body{overflow:hidden}
+html.intro .card[data-i="0"]{opacity:0;transform:translateY(-44%) scale(.98)}
+#man{transform-origin:50% 100%;position:absolute;left:0;top:0;z-index:1;transition:transform .32s cubic-bezier(.3,.8,.3,1);will-change:transform}
+#man:after{content:"";position:absolute;left:4%;right:4%;bottom:-7px;height:16px;background:radial-gradient(closest-side,rgba(70,30,10,.32),transparent)}
+#rig{display:block;overflow:visible;filter:drop-shadow(0 14px 18px rgba(90,40,15,.18))}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) #rig{filter:drop-shadow(0 0 2px rgba(255,200,170,.35)) drop-shadow(0 0 26px rgba(255,120,70,.25))}}
+#floor{position:absolute;left:0;right:0;top:var(--fl,78%);height:1px;background:var(--line)}
+#ticks{position:absolute;left:0;right:0;top:var(--fl,78%);height:16px;background:repeating-linear-gradient(90deg,var(--line) 0 1px,transparent 1px 48px);-webkit-mask-image:linear-gradient(#000,transparent);mask-image:linear-gradient(#000,transparent)}
+#bar{position:absolute;left:0;top:var(--fl,78%);height:3px;width:0;background:var(--acc)}
+@keyframes wv{0%,60%,100%{transform:rotate(0)}10%,30%,50%{transform:rotate(22deg)}20%,40%{transform:rotate(-14deg)}}
+#hi,#bye{position:absolute;z-index:2;display:flex;align-items:center;gap:8px;padding:10px 20px;border-radius:99px;font-weight:800;font-size:1.05rem;letter-spacing:-.01em;background:rgba(255,255,255,.1);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border:1.5px solid var(--line);box-shadow:0 10px 24px -14px rgba(120,50,20,.55);opacity:0;translate:0 8px;pointer-events:none;transition:opacity .4s,translate .5s cubic-bezier(.2,.8,.2,1)}
+#hi.on,#bye.on{opacity:1;translate:0 0;animation:fl 3.6s ease-in-out infinite}
+#hi span,#bye span{display:inline-block;transform-origin:70% 80%;animation:wv 2.4s ease-in-out infinite}
+@media (prefers-reduced-motion:reduce){#hi.on,#hi span,#bye.on,#bye span{animation:none}}
+nav{position:absolute;top:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:calc(env(safe-area-inset-top,0px) + 18px) 5vw 12px;z-index:3}
+nav b{font-weight:800;letter-spacing:-.02em}
+nav div{display:flex;gap:clamp(12px,2.4vw,30px);font-size:.88rem}
+nav a{cursor:pointer;padding:8px 16px;border-radius:99px}
+.card{position:absolute;right:6vw;top:50%;width:min(540px,44vw);padding:30px 32px;border-radius:22px;background:var(--card);border:1px solid var(--edge);-webkit-backdrop-filter:blur(18px);backdrop-filter:blur(18px);box-shadow:0 24px 60px -24px rgba(120,50,20,.35);opacity:0;transform:translateY(-44%) scale(.98);pointer-events:none;transition:opacity .45s,transform .55s cubic-bezier(.2,.8,.2,1);z-index:2}
+.card.on{opacity:1;transform:translateY(-50%);pointer-events:auto}
+.tag{display:inline-block;font-size:.8rem;color:var(--mute);margin:0 0 14px}
+.tag:before{content:"";display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--acc);margin-right:8px}
+h1,h2{margin:0 0 14px;font-weight:800;letter-spacing:-.035em;line-height:1.02;font-size:clamp(2.1rem,4.4vw,3.5rem)}
+h1 em,h2 em{font-style:normal;color:var(--acc)}
+p{margin:0 0 14px;line-height:1.55;color:var(--mute);font-size:1rem;max-width:62ch}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:6px 0 4px}
+.chips span{padding:6px 13px;border-radius:99px;background:var(--chip);font-size:.88rem;font-weight:600}
+.facts{display:flex;gap:28px;margin-top:6px}
+.facts strong{display:block;font-size:2rem;letter-spacing:-.03em;color:var(--acc)}
+.facts small{color:var(--mute)}
+.card.wide{width:min(660px,52vw);padding:26px 30px}
+.card.wide h2{font-size:clamp(1.9rem,3.6vw,2.8rem);margin-bottom:10px}
+.pj{display:grid;grid-template-columns:1fr 1fr;gap:12px 22px;margin-top:6px}
+.pj div{font-size:.86rem;color:var(--mute);line-height:1.35}
+.pj b{display:block;color:var(--ink);font-size:.95rem}
+.pj i{font-style:normal;color:var(--acc);font-weight:600}
+.pj a{display:inline-block;margin-top:7px;padding:5px 15px;border-radius:99px;font-size:.8rem;color:var(--ink)}
+.pj div:nth-child(2n) a{animation-delay:-1.2s}.pj div:nth-child(3n) a{animation-delay:-2.4s}
+.btns{display:flex;flex-wrap:wrap;gap:10px;margin-top:8px}
+@keyframes fl{0%,100%{translate:0 0}50%{translate:0 -6px}}
+.btns a,nav a,.pj a{background:rgba(255,255,255,.08);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border:1.5px solid var(--line);color:var(--ink);text-decoration:none;font-weight:600;box-shadow:0 10px 24px -14px rgba(120,50,20,.55);animation:fl 3.6s ease-in-out infinite;transition:background .25s,border-color .25s,color .25s,transform .25s}
+.btns a{padding:11px 22px;border-radius:99px;font-size:.92rem}
+.btns a:nth-child(2),nav a:nth-child(2){animation-delay:-.9s}.btns a:nth-child(3),nav a:nth-child(3){animation-delay:-1.8s}nav a:nth-child(4){animation-delay:-2.7s}
+.btns a:first-child{border-color:var(--acc);color:var(--acc)}
+.btns a:hover,nav a:hover,nav a.on,.pj a:hover{background:rgba(255,255,255,.3);border-color:var(--acc);color:var(--acc);transform:scale(1.05)}
+.btns a:focus-visible,nav a:focus-visible,.pj a:focus-visible{outline:3px solid var(--ink);outline-offset:2px}
+@media (prefers-reduced-motion:reduce){.btns a,nav a,.pj a{animation:none}}
+#hint{position:absolute;left:0;top:calc(var(--fl,78%) + 28px);padding-left:5vw;font-size:.85rem;color:var(--mute);transition:opacity .4s;z-index:2}
+@media (max-width:800px){
+ .card,.card.wide{left:5vw;right:5vw;width:auto;top:calc(env(safe-area-inset-top,0px) + 70px);max-height:46vh;overflow:auto;padding:22px;transform:translateY(10px)}
+ .card.on{transform:none}
+ h1,h2,.card.wide h2{font-size:clamp(1.8rem,8vw,2.4rem)}
+ .pj{grid-template-columns:1fr}
+ nav{justify-content:center}nav b{display:none}
+ nav div{gap:6px;font-size:.78rem}nav a{padding:6px 11px}
+ #hint{left:0;right:0;text-align:center;padding:0}
+}
+@media (prefers-reduced-motion:reduce){.card{transition:opacity .2s}}
+</style>
+</head>
+<body>
+<div id="stage">
+ <div id="man"><svg id="rig" viewBox="0 0 320 640" width="200" height="400" role="img" aria-label="Illustration of a friendly white robot with a glowing cyan face and antenna, walking">
+   <defs>
+    <radialGradient id="gW" cx=".35" cy=".28" r=".95"><stop offset="0" stop-color="#ffffff"/><stop offset=".5" stop-color="#eef3fa"/><stop offset="1" stop-color="#c6d4e7"/></radialGradient>
+    <linearGradient id="gA" x1="0" x2="1"><stop offset="0" stop-color="#ffffff"/><stop offset="1" stop-color="#c9d7ea"/></linearGradient>
+    <linearGradient id="gF" x1="0" x2="1"><stop offset="0" stop-color="#e3eaf4"/><stop offset="1" stop-color="#aebfd6"/></linearGradient>
+    <radialGradient id="gV" cx=".3" cy=".2" r=".95"><stop offset="0" stop-color="#3a4254"/><stop offset=".45" stop-color="#171a22"/><stop offset="1" stop-color="#0b0d12"/></radialGradient>
+    <filter id="glow" x="-80%" y="-80%" width="260%" height="260%"><feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+   </defs>
+   <g id="body">
+    <g id="fl"><path fill="url(#gF)" stroke="#b3c2d6" stroke-width="1.5" d="M-11,-8 L11,-8 C13,40 12,80 9,100 L-9,100 C-12,80 -13,40 -11,-8Z"/><g id="fk"><path fill="url(#gF)" stroke="#b3c2d6" stroke-width="1.5" d="M-9,-2 L9,-2 L8,92 L-8,92Z"/><circle r="10" fill="#8fa5c2" stroke="#b3c2d6" stroke-width="1.5"/><rect x="-9" y="78" width="18" height="8" rx="3" fill="#8ec1ea"/><g id="ff"><path fill="url(#gF)" stroke="#b3c2d6" stroke-width="1.5" d="M-10,-3 L10,-3 C14,0 30,2 35,10 C37,15 34,18 28,18 L-8,18 C-15,18 -15,10 -12,6Z"/><path fill="#8ec1ea" d="M-12,13 L34,13 C36,14 36,18 28,18 L-8,18 C-14,18 -14,16 -12,13Z"/></g></g></g>
+    <g id="nl"><path fill="url(#gA)" stroke="#b3c2d6" stroke-width="1.5" d="M-11,-8 L11,-8 C13,40 12,80 9,100 L-9,100 C-12,80 -13,40 -11,-8Z"/><g id="nk"><path fill="url(#gA)" stroke="#b3c2d6" stroke-width="1.5" d="M-9,-2 L9,-2 L8,92 L-8,92Z"/><circle r="10" fill="#8fa5c2" stroke="#b3c2d6" stroke-width="1.5"/><rect x="-9" y="78" width="18" height="8" rx="3" fill="#8ec1ea"/><g id="nf"><path fill="url(#gA)" stroke="#b3c2d6" stroke-width="1.5" d="M-10,-3 L10,-3 C14,0 30,2 35,10 C37,15 34,18 28,18 L-8,18 C-15,18 -15,10 -12,6Z"/><path fill="#8ec1ea" d="M-12,13 L34,13 C36,14 36,18 28,18 L-8,18 C-14,18 -14,16 -12,13Z"/></g></g></g>
+    <g id="up">
+     <g id="fa"><path fill="url(#gF)" stroke="#b3c2d6" stroke-width="1.5" d="M-11,-6 C-13,20 -12,45 -10,62 L10,62 C12,45 13,20 11,-6 C8,-12 -8,-12 -11,-6Z"/><g id="fe"><path fill="url(#gF)" stroke="#b3c2d6" stroke-width="1.5" d="M-10,-2 C-11,20 -10,44 -8,58 C-5,66 5,66 8,58 C10,44 11,20 10,-2Z"/><rect x="-10" y="6" width="20" height="7" rx="3" fill="#8ec1ea"/></g></g>
+     <rect x="-12" y="-170" width="24" height="30" rx="7" fill="#7c8da6"/>
+     <path fill="url(#gW)" stroke="#b3c2d6" stroke-width="1.5" d="M0,-146 C34,-146 50,-100 54,-52 C58,0 34,36 0,36 C-34,36 -58,0 -54,-52 C-50,-100 -34,-146 0,-146Z"/>
+     <path fill="none" stroke="#dfe7f2" stroke-width="3" stroke-linecap="round" d="M-30,-60 C-34,-20 -22,12 0,22"/>
+     <circle cx="16" cy="-84" r="8" fill="#0f1218"/><circle cx="16" cy="-84" r="4.5" fill="#3fe0f5" filter="url(#glow)"/>
+     <g id="head" transform="translate(4 -164)">
+      <rect x="-12" y="-6" width="24" height="24" rx="7" fill="#7c8da6"/>
+      <ellipse cx="-80" cy="-62" rx="14" ry="25" fill="url(#gW)" stroke="#b3c2d6" stroke-width="1.5"/><ellipse cx="-82" cy="-62" rx="8" ry="17" fill="#a9cbec"/>
+      <ellipse cx="80" cy="-62" rx="14" ry="25" fill="url(#gW)" stroke="#b3c2d6" stroke-width="1.5"/><ellipse cx="82" cy="-62" rx="8" ry="17" fill="#a9cbec"/>
+      <path stroke="#c3cfe0" stroke-width="4" stroke-linecap="round" d="M0,-118 L0,-138"/>
+      <circle cx="0" cy="-145" r="8" fill="#3fe0f5" filter="url(#glow)"><animate attributeName="opacity" values="1;.55;1" dur="2s" repeatCount="indefinite"/></circle>
+      <ellipse cx="0" cy="-62" rx="77" ry="60" fill="url(#gW)" stroke="#b3c2d6" stroke-width="1.5"/>
+      <ellipse cx="-30" cy="-103" rx="30" ry="9" transform="rotate(-18 -30 -103)" fill="#fff" opacity=".7"/>
+      <ellipse cx="0" cy="-62" rx="60" ry="42" fill="url(#gV)" stroke="#1b1f27" stroke-width="2"/>
+      <path fill="#fff" opacity=".12" d="M-48,-76 C-40,-92 -14,-100 8,-98 C-10,-90 -34,-84 -48,-76Z"/>
+      <g id="eyes"><circle cx="-22" cy="-66" r="8.5" fill="#3fe0f5" filter="url(#glow)"/><circle cx="22" cy="-66" r="8.5" fill="#3fe0f5" filter="url(#glow)"/></g>
+      <path fill="none" stroke="#3fe0f5" stroke-width="4" stroke-linecap="round" d="M-12,-50 Q0,-39 12,-50" filter="url(#glow)"/>
+     </g>
+     <g id="na"><path fill="url(#gA)" stroke="#b3c2d6" stroke-width="1.5" d="M-11,-6 C-13,20 -12,45 -10,62 L10,62 C12,45 13,20 11,-6 C8,-12 -8,-12 -11,-6Z"/><g id="ne"><path fill="url(#gA)" stroke="#b3c2d6" stroke-width="1.5" d="M-10,-2 C-11,20 -10,44 -8,58 C-5,66 5,66 8,58 C10,44 11,20 10,-2Z"/><rect x="-10" y="6" width="20" height="7" rx="3" fill="#8ec1ea"/><rect id="finger" x="-4" y="60" width="8" height="26" rx="4" fill="url(#gA)" stroke="#b3c2d6" stroke-width="1.5" transform="translate(0 60) scale(1 0) translate(0 -60)"/></g></g>
+    </g>
+   </g>
+  </svg></div>
+ <div id="hi" aria-hidden="true">Hello! <span>👋</span></div>
+ <div id="bye" aria-hidden="true">Goodbye! <span>👋</span></div>
+ <div id="floor"></div><div id="ticks"></div><div id="bar"></div>
+ <nav><b>Muhammad Ali</b><div><a data-go="1">About</a><a data-go="2">Skills</a><a data-go="3">Projects</a><a data-go="5">Contact</a></div></nav>
+
+ <section class="card on" data-i="0">
+  <p class="tag">Data Science student · Haripur, Pakistan</p>
+  <h1>Hi, I’m <em>Muhammad Ali.</em></h1>
+  <p>I’m a Python developer exploring AI and intelligent systems. I like turning curiosity into working software. Scroll down and I’ll walk you through what I’ve built.</p>
+  <div class="btns"><a data-go="3">See my projects</a><a class="alt" href="mailto:ale.muhamd@hotmail.com">Email me</a></div>
+ </section>
+
+ <section class="card" data-i="1">
+  <p class="tag">About me</p>
+  <h2>It started with <em>curiosity.</em></h2>
+  <p>I’m studying for a BS in Data Science at Pak-Austria Fachhochschule (PAF-IAST) in Haripur. I learn by experimenting, breaking problems into small parts and building things that work.</p>
+  <div class="facts"><div><strong>2025</strong><small>Started at PAF-IAST</small></div><div><strong>3rd</strong><small>Semester in progress</small></div></div>
+ </section>
+
+ <section class="card" data-i="2">
+  <p class="tag">Skills</p>
+  <h2>Tools I <em>build with.</em></h2>
+  <div class="chips"><span>Python</span><span>C++</span><span>HTML5</span><span>CSS3</span><span>JavaScript</span><span>PyQt5</span><span>Git &amp; GitHub</span><span>VS Code</span></div>
+  <p style="margin-top:14px">In data science I work on preprocessing, analysis, text processing and machine learning fundamentals, including classification problems.</p>
+ </section>
+
+ <section class="card wide" data-i="3">
+  <p class="tag">Selected projects</p>
+  <h2>Things I’ve <em>made.</em></h2>
+  <div class="pj">
+   <div><b>Review Sentiment Classifier</b>Classifies text reviews by sentiment. NLP in Python.<br><a href="https://github.com/its-m-ali/Review-Sentiment-Classifier" target="_blank" rel="noopener" aria-label="View Review Sentiment Classifier repository on GitHub">View repo</a></div>
+   <div><b>Urdu Reviews Toolkit</b>Urdu text processing in a PyQt5 desktop app, using NLTK.<br><a href="https://github.com/its-m-ali/Urdu_Reviews_Toolkit" target="_blank" rel="noopener" aria-label="View Urdu Reviews Toolkit repository on GitHub">View repo</a></div>
+   <div><b>Crowd Counting</b>Computer vision project on estimating people in a scene.<br><a href="https://github.com/its-m-ali/CrowdCounting" target="_blank" rel="noopener" aria-label="View Crowd Counting repository on GitHub">View repo</a></div>
+   <div><b>Model Card Generator</b>Automates documentation for machine learning models.<br><a href="https://github.com/its-m-ali/automated-model-card-generator" target="_blank" rel="noopener" aria-label="View Model Card Generator repository on GitHub">View repo</a></div>
+   <div><b>Customer Segmentation</b>Data science project on grouping customers into segments.<br><a href="https://github.com/its-m-ali/Customer-Segmentation" target="_blank" rel="noopener" aria-label="View Customer Segmentation repository on GitHub">View repo</a></div>
+   <div><b>Student Grade System</b>Structured program for managing student grades.</div>
+   <div><b>AI Micro-Grid Battery Preserver</b><i>In progress.</i> Intelligent battery management for microgrids.</div>
+  </div>
+ </section>
+
+ <section class="card" data-i="4">
+  <p class="tag">What’s next</p>
+  <h2>Where I’m <em>heading.</em></h2>
+  <p>I want to work where software meets intelligent systems and real-world problems.</p>
+  <div class="chips"><span>Artificial intelligence</span><span>Machine learning</span><span>Computer vision</span><span>Language technology</span><span>Cybersecurity</span><span>Energy tech</span></div>
+ </section>
+
+ <section class="card" data-i="5">
+  <p class="tag">Contact</p>
+  <h2>Let’s build <em>something.</em></h2>
+  <p>Open to learning opportunities, collaborations and project ideas. The fastest way to reach me is email.</p>
+  <div class="btns"><a href="mailto:ale.muhamd@hotmail.com">ale.muhamd@hotmail.com</a><a class="alt" href="https://github.com/its-m-ali" target="_blank" rel="noopener">GitHub</a><a class="alt" href="https://www.linkedin.com/in/muhammad-ali-5265b0377" target="_blank" rel="noopener">LinkedIn</a></div>
+ </section>
+ <div id="hint">Scroll down and I’ll walk you through it</div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script>
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)],N=6;
+const man=$('#man'),rig=$('#rig'),J={};
+['body','fl','fk','ff','nl','nk','nf','fa','fe','na','ne','up','head','eyes','finger'].forEach(k=>J[k]=document.getElementById(k));
+const D=180/Math.PI,L1=100,L2=95,SOLE=17,HIPX=160,HIPY=428,A=.4,CH=382; // CH = drawn height of the man
+let cssW=0,cssH=0,dph=.02,fx=.24,fl=.78,dir=1,flip=0;
+const S={o:0,lean:0,amp:0,wv:0,pt:0,pa:0,hr:0,ex:0,ey:0,es:1,bl:1,finger:0};  // intro state, driven by GSAP
+let IN=false;
+function fit(){
+ const w=innerWidth,h=innerHeight,m=w<800;
+ fl=m?.9:.78;fx=m?.5:.24;
+ cssH=h*(m?.36:.62);cssW=cssH/2;
+ rig.setAttribute('width',cssW);rig.setAttribute('height',cssH);
+ man.style.left=(fx*w-cssW/2)+'px';man.style.top=(fl*h-cssH)+'px';
+ for(const el of [$('#hi'),$('#bye')]){el.style.left=(fx*w+cssW*.44)+'px';el.style.top=(fl*h-cssH*.97)+'px'}
+ document.documentElement.style.setProperty('--fl',fl*100+'%');
+ dph=1.25*2*Math.PI/(.795*CH*cssH/640); // one 2-step cycle covers about 0.8 body heights of ground
+}
+addEventListener('resize',fit);
+const lerp=(a,b,k)=>a+(b-a)*k;
+function pose(ph,amp,wv,t){
+ const s=Math.sin(ph),c=Math.cos(ph);
+ const nt=A*s*amp,ft=-A*s*amp;                       // thigh swing (positive = back)
+ const nk=(.1+.75*Math.max(0,-c))*amp,fk=(.1+.75*Math.max(0,c))*amp; // knee bend
+ let na=.05-.5*s*amp,ne=-.12-.3*amp;                  // near arm
+ const fa=.05+.5*s*amp,fe=-.12-.3*amp;                // far arm
+ na=lerp(na,-1.7,wv);ne=lerp(ne,-1.4+.45*Math.sin(t/105),wv);
+ na=lerp(na,S.pa,S.pt);ne=lerp(ne,0,S.pt);          // pointing at the button
+ J.eyes.setAttribute('transform',`translate(${S.ex} ${S.ey}) translate(0 -66) scale(${S.es} ${S.es*S.bl}) translate(0 66)`);
+ J.finger.setAttribute('transform',`translate(0 60) scale(1 ${S.finger}) translate(0 -60)`);
+ const nd=.5*nt,fd=.5*ft;                             // toe-off / heel-strike tilt
+ const sole=(th,k,dl)=>L1*Math.cos(th)+L2*Math.cos(th+k)+SOLE*Math.cos(dl);
+ const dy=(L1+L2+SOLE)-Math.max(sole(nt,nk,nd),sole(ft,fk,fd)); // keep the lowest foot on the floor
+ const set=(k,v)=>J[k].setAttribute('transform',v);
+ set('body',`translate(${HIPX} ${HIPY+dy})`);
+ set('nl',`rotate(${nt*D})`);set('nk',`translate(0 ${L1}) rotate(${nk*D})`);set('nf',`translate(0 ${L2}) rotate(${(-(nt+nk)+nd)*D})`);
+ set('fl',`rotate(${ft*D})`);set('fk',`translate(0 ${L1}) rotate(${fk*D})`);set('ff',`translate(0 ${L2}) rotate(${(-(ft+fk)+fd)*D})`);
+ set('na',`translate(4 -112) rotate(${na*D})`);set('ne',`translate(0 62) rotate(${ne*D})`);
+ set('fa',`translate(4 -112) rotate(${fa*D})`);set('fe',`translate(0 62) rotate(${fe*D})`);
+ set('up',`rotate(${(.05*amp+.02*wv)*D})`);
+ set('head',`translate(4 -164) rotate(${(-.04*amp+.03*Math.sin(2*ph)*amp-.05*wv)*D+S.hr}) scale(1)`);
+}
+const cards=$$('.card'),links=$$('nav a'),reduce=matchMedia('(prefers-reduced-motion:reduce)').matches;
+let lastY=scrollY,ph=0,amp=0,wv=0,still=99,cur=-1;
+function setCard(i){if(i===cur)return;cur=i;cards.forEach((c,k)=>c.classList.toggle('on',k===i));links.forEach(a=>a.classList.toggle('on',+a.dataset.go===i))}
+function maxY(){return document.documentElement.scrollHeight-innerHeight}
+function go(i){scrollTo({top:maxY()*(i+.5)/N,behavior:reduce?'auto':'smooth'})}
+$$('[data-go]').forEach(a=>{a.tabIndex=0;a.setAttribute('role','link');a.addEventListener('click',e=>{e.preventDefault();go(+a.dataset.go)});a.addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();go(+a.dataset.go)}})});
+function frame(t){
+ const y=scrollY,d=y-lastY;lastY=y;
+ if(Math.abs(d)>.2){dir=d>0?1:-1;still=0;ph+=Math.min(Math.abs(d),40)*dph}else still++;
+ const moving=still<8;
+ if(IN)amp=S.amp;else amp+=((moving?1:0)-amp)*.12;
+ man.style.translate=S.o+'px 0';man.style.rotate=S.lean+'deg';
+ if(!IN&&S.pt>0&&moving&&!S.rel){S.rel=1;gsap.to(S,{pt:0,finger:0,duration:.5,onComplete:()=>S.rel=0})}
+ const calm=!moving&&amp<.06,top=y<40,end=y>=maxY()-40;
+ if(calm&&(top||end))dir=1;                         // face the card when greeting
+ if(IN)wv=S.wv;else wv+=(((calm&&(top||end)&&S.pt<.5)?1:0)-wv)*.09;
+ if(flip!==dir){flip=dir;man.style.transform='scaleX('+dir+')'}
+ pose(ph,amp,wv,t);
+ $('#hi').classList.toggle('on',calm&&top&&wv>.5);
+ $('#bye').classList.toggle('on',calm&&end&&wv>.5);
+ const p=Math.min(1,Math.max(0,y/maxY()));
+ setCard(Math.min(N-1,Math.floor(p*N)));
+ $('#bar').style.width=p*100+'%';
+ $('#hint').style.opacity=y<40?1:0;
+ $('#ticks').style.backgroundPositionX=(-y)+'px';
+ requestAnimationFrame(frame);
+}
+
+/* ===== Intro: peek -> entrance -> gaze & handshake -> point at the button (GSAP drives S) ===== */
+function aimAngle(){            // angle that makes the near arm aim at the hero button
+ const r=rig.getBoundingClientRect(),k=r.width/320,c=$('.card .btns a').getBoundingClientRect();
+ const dx=c.left-8-(r.left+164*k),dy=c.top+c.height/2-(r.top+316*k);
+ return Math.atan2(-dx,dy);
+}
+function startIntro(){
+ if(reduce||!window.gsap)return;
+ const root=document.documentElement,btn=$('.card .btns a');
+ root.classList.add('lock','intro');IN=true;dir=1;
+ const at=f=>cssW*f-fx*innerWidth;                  // robot centre = f x its own width from the left edge
+ S.o=at(-1);let last=S.o;
+ const walk=()=>{ph+=Math.abs(S.o-last)*dph;last=S.o};
+ const finish=()=>{IN=false;root.classList.remove('lock','intro');S.o=0;S.lean=0;S.hr=0;S.ex=0;S.ey=0;S.es=1;S.bl=1;S.amp=0;S.wv=0;gsap.set(btn,{clearProps:'transform'});
+  ['wheel','touchstart','keydown'].forEach(e=>removeEventListener(e,skip))};
+ const tl=gsap.timeline({defaults:{ease:'power2.inOut'},onComplete:finish});tl.timeScale(1.3);
+ const skip=()=>tl.progress(1);
+ ['wheel','touchstart','keydown'].forEach(e=>addEventListener(e,skip,{once:true,passive:true}));
+
+ /* 1 PEEK: leans out from behind the left edge, looks around, ducks back, peeks again */
+ tl.to(S,{o:()=>at(.08),duration:1.3,ease:'power3.out'})
+   .to(S,{lean:7,hr:9,duration:.8,ease:'sine.inOut'},'-=.6').to(S,{ex:7,ey:-2,duration:.5},'<')
+   .to(S,{ex:-6,ey:1,duration:.45},'+=.3')
+   .to(S,{bl:.1,duration:.08,yoyo:true,repeat:1})
+   .to(S,{o:()=>at(-.3),lean:0,duration:.5,ease:'power2.in'},'+=.1').to({},{duration:.3})
+   .to(S,{o:()=>at(.24),lean:8,hr:-6,duration:1.1,ease:'power3.out'}).to(S,{ex:8,ey:-3,duration:.5},'<');
+
+ /* 2 ENTRANCE: walks smoothly into place, feet synced to the ground */
+ tl.addLabel('enter','+=.25').call(()=>{last=S.o},null,'enter')
+   .to(S,{amp:1,duration:.4,ease:'sine.out'},'enter')
+   .to(S,{o:0,duration:1.9,ease:'power2.inOut',onUpdate:walk},'enter')
+   .to(S,{lean:0,hr:0,ex:0,ey:0,duration:1,ease:'sine.inOut'},'enter')
+   .to(S,{amp:0,duration:.5,ease:'sine.inOut'},'enter+=1.7');
+
+ /* 3 GAZE & SHAKE: eye contact, blink, warm handshake wave (+ "Hello!" bubble) */
+ tl.addLabel('gaze','+=.1')
+   .to(S,{es:1.15,duration:.35,ease:'back.out(2)'},'gaze')
+   .to(S,{bl:.1,duration:.08,yoyo:true,repeat:1},'gaze+=.5')
+   .to(S,{wv:1,duration:.9,ease:'back.out(1.4)'},'gaze+=.7')
+   .to(S,{hr:4,duration:.2,yoyo:true,repeat:3,ease:'sine.inOut'},'<')
+   .to(S,{wv:0,duration:.8},'+=1.5');
+
+ /* 4 CALL TO ACTION: card appears, he glances at it, the arm points at the button */
+ tl.addLabel('cta').call(()=>root.classList.remove('intro'),null,'cta')
+   .to(S,{ex:9,ey:-1,hr:5,duration:.5},'cta')
+   .to(S,{pt:1,pa:aimAngle,duration:.9,ease:'back.out(1.5)'},'cta+=.3')
+   .to(S,{finger:1,duration:.35,ease:'back.out(2)'},'cta+=1.1')
+   .to(btn,{scale:1.07,duration:.45,yoyo:true,repeat:3,ease:'sine.inOut'},'cta+=1.3');
+}
+fit();requestAnimationFrame(frame);
+addEventListener('load',startIntro);
+</script>
+</body>
+</html>
